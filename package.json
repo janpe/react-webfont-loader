@@ -1,0 +1,41 @@
+{
+  "name": "@dr-kobros/react-webfont-loader",
+  "version": "0.1.0",
+  "description": "Webfontloader for React",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "build": "NODE_ENV=production babel src -d lib",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pekkis/react-webfont-loader.git"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-eslint": "^7.0.0",
+    "babel-preset-react-app": "^0.2.1",
+    "eslint": "^3.8.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1"
+  },
+  "keywords": [
+    "React",
+    "Webfontloader",
+    "Fonts",
+    "Webfonts"
+  ],
+  "author": "pekkis",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/pekkis/react-webfont-loader/issues"
+  },
+  "homepage": "https://github.com/pekkis/react-webfont-loader#readme",
+  "dependencies": {
+    "react": "^15",
+    "webfontloader": "^1.6.27"
+  }
+}
