@@ -2,15 +2,20 @@ import React from 'react';
 import WebFont from 'webfontloader';
 import statuses from './statuses';
 
+const noop = () => { };
+
 class WebfontLoader extends React.Component {
 
   componentWillMount() {
-    const { config, callback } = this.props;
+    const { config, onStatus, onFontStatus } = this.props;
     WebFont.load({
       ...config,
-      loading: () => callback(statuses.loading),
-      active: () => callback(statuses.active),
-      inactive: () => callback(statuses.inactive),
+      loading: () => onStatus(statuses.loading),
+      active: () => onStatus(statuses.active),
+      inactive: () => onStatus(statuses.inactive),
+      fontloading: (font, variation) => onFontStatus(font, variation, statuses.loading),
+      fontactive: (font, variation) => onFontStatus(font, variation, statuses.active),
+      fontinactive: (font, variation) => onFontStatus(font, variation, statuses.inactive),
     });
   }
 
@@ -24,11 +29,13 @@ class WebfontLoader extends React.Component {
 WebfontLoader.propTypes = {
   config: React.PropTypes.object.isRequired,
   children: React.PropTypes.element.isRequired,
-  callback: React.PropTypes.func.isRequired,
+  onStatus: React.PropTypes.func.isRequired,
+  onFontStatus: React.PropTypes.func.isRequired,
 };
 
 WebfontLoader.defaultProps = {
-  callback: () => { },
+  onStatus: noop,
+  onFontStatus: noop,
 };
 
 export default WebfontLoader;
