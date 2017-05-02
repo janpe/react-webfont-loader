@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import WebFont from 'webfontloader';
 import statuses from './statuses';
 
 const noop = () => { };
 
-class WebfontLoader extends React.Component {
+class WebfontLoader extends Component {
 
   componentWillMount() {
     const { config, onStatus, onFontStatus } = this.props;
@@ -27,10 +28,10 @@ class WebfontLoader extends React.Component {
 }
 
 WebfontLoader.propTypes = {
-  config: React.PropTypes.object.isRequired,
-  children: React.PropTypes.element.isRequired,
-  onStatus: React.PropTypes.func.isRequired,
-  onFontStatus: React.PropTypes.func.isRequired,
+  config: PropTypes.object.isRequired,
+  children: PropTypes.element.isRequired,
+  onStatus: PropTypes.func.isRequired,
+  onFontStatus: PropTypes.func.isRequired,
 };
 
 WebfontLoader.defaultProps = {
